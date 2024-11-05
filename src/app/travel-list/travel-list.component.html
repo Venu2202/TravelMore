@@ -1,0 +1,150 @@
+<section class="popular-tours py-5">
+  <div class="container">
+    <h2 class="text-custom">Explore Our Popular Tours</h2>
+    <mat-slide-toggle>Toggle me!</mat-slide-toggle>
+    <!-- Add City Button -->
+    <div class="d-flex justify-content-end mb-4">
+      <button class="btn custom-booking-button" (click)="addCity()">Add City</button>
+    </div>
+
+    <div class="search-container d-flex justify-content-end mb-4">
+      <input type="text" class="form-control" placeholder="Search for destinations" [(ngModel)]="searchTerm" />
+    </div>
+
+    <div class="mb-4">
+      <p>Your rating: {{ cityRating }} / 5</p> 
+    </div>
+
+    <div class="row">
+      <div class="col-md-4" *ngFor="let destination of filteredDestinations; let i = index">
+        <div class="card tour-card shadow-sm border-0 mb-4">
+          <img [src]="destination.img" alt="{{ destination.name }}" class="card-img-top tour-img">
+          <div class="card-body p-4">
+            <h5 class="card-title text-primary">{{ destination.name }}</h5>
+            <p class="card-text text-muted mb-2">
+              <i class="bi bi-geo-alt-fill me-1"></i> {{ destination.location }} <br>
+              <app-star-rating [rating]="destination.rating" (ratingChange)="onRatingChange($event)"></app-star-rating><br>
+              <span class="fw-bold text-success">Price: {{ destination.price }}</span>
+            </p>
+            <p class="card-text description text-secondary">
+              Discover the charm of {{ destination.location }} with this amazing tour package. Perfect for adventure lovers and culture enthusiasts!
+            </p>
+          </div>
+    
+          <!-- Card Footer for Buttons -->
+          <div class="card-footer d-flex justify-content-between align-items-center" style="background: rgba(255, 255, 255, 0.7);">
+            <button class="btn btn-outline-primary" (click)="editDestination(i)" style="flex: 1; margin-right: 5px;">Edit</button>
+            <button class="btn btn-outline-danger" (click)="confirmDelete(i)" style="flex: 1;">Delete</button>
+          </div>
+    
+          <a href="#" class="btn custom-booking-button w-100 mt-2" [routerLink]="['/bookingdetails', destination.id]">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Add City Modal -->
+<div class="modal fade" id="addCityModal" tabindex="-1" aria-labelledby="addCityModalLabel" aria-hidden="true" 
+     [ngClass]="{ 'show': isModalOpen }" 
+     [style.display]="isModalOpen ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCityModalLabel">Add New City</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="travelForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">City Name</label>
+            <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter city name">
+          </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" formControlName="location" class="form-control" id="location" placeholder="Enter location">
+          </div>
+          <div class="mb-3">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="number" formControlName="rating" class="form-control" id="rating" min="0" max="5" placeholder="Enter rating (0-5)">
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" formControlName="price" class="form-control" id="price" placeholder="Enter price">
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">City Image</label>
+            <input type="file" (change)="onFileSelected($event)" class="form-control" id="img">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="addOrUpdateDestination(); closeModal()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit City Modal -->
+<div class="modal fade" id="editCityModal" tabindex="-1" aria-labelledby="editCityModalLabel" aria-hidden="true" 
+     [ngClass]="{ 'show': isEditModalOpen }" 
+     [style.display]="isEditModalOpen ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editCityModalLabel">Edit City</h5>
+        <button type="button" class="btn-close" (click)="closeEditModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="travelForm"> <!-- Use travelForm for editing -->
+          <div class="mb-3">
+            <label for="editName" class="form-label">City Name</label>
+            <input type="text" formControlName="name" class="form-control" id="editName" placeholder="Enter city name">
+          </div>
+          <div class="mb-3">
+            <label for="editLocation" class="form-label">Location</label>
+            <input type="text" formControlName="location" class="form-control" id="editLocation" placeholder="Enter location">
+          </div>
+          <div class="mb-3">
+            <label for="editRating" class="form-label">Rating</label>
+            <input type="number" formControlName="rating" class="form-control" id="editRating" min="0" max="5" placeholder="Enter rating (0-5)">
+          </div>
+          <div class="mb-3">
+            <label for="editPrice" class="form-label">Price</label>
+            <input type="text" formControlName="price" class="form-control" id="editPrice" placeholder="Enter price">
+          </div>
+          <div class="mb-3">
+            <label for="editImg" class="form-label">City Image</label>
+            <input type="file" (change)="onFileSelected($event)" class="form-control" id="editImg"> <!-- Use same method -->
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="updateDestination(); closeEditModal()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete City Modal -->
+<div class="modal fade" id="deleteCityModal" tabindex="-1" aria-labelledby="deleteCityModalLabel" aria-hidden="true" 
+     [ngClass]="{ 'show': isDeleteModalOpen }" 
+     [style.display]="isDeleteModalOpen ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteCityModalLabel">Confirm Deletion</h5>
+        <button type="button" class="btn-close" (click)="closeDeleteModal()"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this city?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeDeleteModal()">Cancel</button>
+        <button type="button" class="btn btn-danger" (click)="deleteDestination(); closeDeleteModal()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

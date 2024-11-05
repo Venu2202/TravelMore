@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "img": "assets/images/jaipur.jpg",
+      "name": "Jaipur",
+      "location": "Rajasthan",
+      "rating": 3,
+      "price": "₹75,000"
+    },
+    {
+      "id": 2,
+      "img": "assets/images/goa.jpg",
+      "name": "Goa",
+      "location": "Goa",
+      "rating": 4.5,
+      "price": "₹90,000"
+    },
+    {
+      "id": 3,
+      "img": "assets/images/varanasi.jpg",
+      "name": "Varanasi",
+      "location": "Uttar Pradesh",
+      "rating": 3,
+      "price": "₹65,000"
+    },
+    {
+      "id": 4,
+      "img": "assets/images/kerala.jpg",
+      "name": "Kerala",
+      "location": "Kerala",
+      "rating": 4.2,
+      "price": "₹110,000"
+    },
+    {
+      "id": 5,
+      "img": "assets/images/agra.jpg",
+      "name": "Agra",
+      "location": "Uttar Pradesh",
+      "rating": 4.8,
+      "price": "₹55,000"
+    },
+    {
+      "id": 6,
+      "img": "assets/images/mumbai.jpg",
+      "name": "Mumbai",
+      "location": "Maharashtra",
+      "rating": 2,
+      "price": "₹95,000"
+    },
+    {
+      "id": 7,
+      "img": "assets/images/delhi.jpg",
+      "name": "Delhi",
+      "location": "Delhi",
+      "rating": 4,
+      "price": "₹80,000"
+    },
+    {
+      "id": 8,
+      "img": "assets/images/ladakh.jpg",
+      "name": "Ladakh",
+      "location": "Jammu & Kashmir",
+      "rating": 4.7,
+      "price": "₹150,000"
+    },
+    {
+      "id": 9,
+      "img": "assets/images/udaipur.jpg",
+      "name": "Udaipur",
+      "location": "Rajasthan",
+      "rating": 5,
+      "price": "₹85,000"
+    }
+  ]
+  

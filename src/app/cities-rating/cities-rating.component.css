@@ -1,0 +1,27 @@
+.text-warning-half {
+    background: linear-gradient(90deg, #ffcc00 50%, transparent 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.text-success {
+    color: green; }
+.text-warning {
+    color: orange; 
+}
+.text-danger {
+    color: red; 
+}
+.text-success-half {
+    background: linear-gradient(90deg, green 50%, transparent 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.text-danger-half {
+    background: linear-gradient(90deg, red 50%, transparent 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}

@@ -1,0 +1,5 @@
+<span *ngFor="let star of [].constructor(5); let i = index" 
+      class="bi bi-star-fill" 
+      [ngClass]="getStarClass(i)"
+      (click)="onStarClick(i)">
+</span>

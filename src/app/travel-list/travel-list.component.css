@@ -1,0 +1,119 @@
+.mb-4 {
+  margin-top: 2rem; 
+  margin-bottom: 190px; 
+}
+
+.search-container {
+  display: flex;
+  justify-content: flex-end; 
+  width: 100%;
+}
+
+.form-control {
+  width: 30%; 
+  padding: 10px 15px; 
+  font-size: 1rem; 
+  border: 1px solid #ccc;
+  border-radius: 5px; 
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.form-control:focus {
+  border-color: #ff4f81; 
+  box-shadow: 0 0 5px #ff4f81; 
+  outline: none; 
+}
+
+::placeholder {
+  color: #aaa; 
+  opacity: 1; 
+  transition: color 0.3s ease; 
+}
+
+.form-control:focus::placeholder {
+  color: #ff4f83;
+}
+
+.tour-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .tour-img {
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  
+  .description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  
+  .custom-booking-button {
+    background-color: #ff4f81; 
+    color: white; 
+    border: none;
+    padding: 15px; 
+    border-radius: 5px; 
+    font-size: 16px;
+    text-transform: uppercase; 
+    transition: background-color 0.3s ease, transform 0.2s; 
+  }
+  
+  .custom-booking-button:hover {
+    background-color: #f13a6a; 
+    transform: scale(1.05);
+  }
+  
+  h2.text-custom {
+    font-size: 2.5rem;
+    margin-top: 20px; 
+    margin-bottom: 15px; 
+    text-align: center; 
+    color: #ff4f81; 
+    
+  }
+  .dropdown {
+    position: absolute;
+    right: 20px; 
+    top: 20px; 
+  }
+  .modal.show {
+    display: block;
+  }
+
+  .modal-body .form-control {
+    width: 100%; 
+    max-width: 100%; 
+  }
+  
+  .card-footer {
+    border-top: none; 
+    transition: background-color 0.3s; 
+  }
+  
+  .card-footer:hover {
+    background: rgba(255, 255, 255, 0.9); 
+  }
+  
+  .btn {
+    transition: transform 0.2s, box-shadow 0.2s; 
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  }
+  
+  
